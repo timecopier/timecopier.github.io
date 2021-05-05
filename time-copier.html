@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <title>
+      CAREBEAR'S PAGE
+    </title>
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <link rel="stylesheet" href="ianstyle.css">
+
+    <input id="care-a-lot time">
+    <table>
+      <tr>
+        <td class="outline">
+        <div class="clock" id="care-a-lot time"></div>
+        </td>
+      </tr>
+    </table>
+  </input>
+    <button onclick="buttonCopyText()">Copy text</button>
+
+	<script>
+  function buttonCopyText() {
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+  alert("Copied the text: " + copyText.value);
+}
+
+	function startTime()
+		{
+		var timedifference=0;
+		var today=new Date();
+		var h=today.getHours()+timedifference;
+		var m=today.getMinutes();
+		var s=today.getSeconds();
+		// add a zero in front of numbers<10
+		m=checkTime(m);
+		s=checkTime(s);
+		document.getElementById('care-a-lot time').innerHTML=h+":"+m+":"+s;
+		t=setTimeout(function(){startTime()},500);
+		}
+
+	function checkTime(i)
+		{
+		if (i<10)
+  		{
+  		i="0" + i;
+  		}
+		return i;
+		}
+	</script>
+
+  </head>
+  <body onload="startTime()">
+	<hr>
+	<center>
+		<img src="http://www.mibepa.info/bb/pics/bb009-d.gif">
+	</center>
+	<hr>
+	<p> Time in Care-a-lot:</p>
+	<table>
+		<tr>
+			<td class="outline">
+			<div class="clock" id="care-a-lot time"></div>
+			</td>
+		</tr>
+	</table>
+	<p class="yell"> It's TIME!</p>
+	<p class="important"> It's TIME!</p>
+
+  </body>
+
+</html>

@@ -1,0 +1,9 @@
+body {background-color: #000000; }
+p {margin-left:20px;
+			color:#888888;}
+		p.important {text-decoration:underline;}
+		p.yell {font-size:30px;}
+
+h3 {color:#888888}
+
+div.clock {color:white; margin-left:20px;font-size:30px;background:#4399ff;}
