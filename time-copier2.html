@@ -10,36 +10,63 @@
 
     <link rel="stylesheet" href="ianstyle.css">
 
-    <input>
-    <div class="clock" id="care-a-lot time"></div>
-  </input>
+    <input type=text id="caltime" value="asdf"></input>
     <button onclick="buttonCopyText()">Copy text</button>
 
-	<script>
+<script>
   function buttonCopyText() {
-  var copyText = document.getElementById("care-a-lot time");
+  var copyText = document.getElementById("caltime");
   copyText.select();
   copyText.setSelectionRange(0, 99999)
   document.execCommand("copy");
   alert("Copied the text: " + copyText.value);
 }
 
-	function startTime()
+function startTime()
   {
 var d = new Date();
-var n = d.toISOString();
-document.getElementById("care-a-lot time").innerHTML = n;
-t=setTimeout(function(){startTime()},888);
+var f = "0";
+var y = d.getFullYear();
+var mm = d.getMonth()+1;
+var dd = d.getDate();
+var h = d.getHours();
+var m = d.getMinutes();
+var s = d.getSeconds();
+
+if (mm < 10) {
+var currMonth = "0"+mm;
+} else {
+var currMonth = mm;
 }
 
-function checkTime(i)
-  {
-  if (i<10)
-    {
-    i="0" + i;
-    }
-  return i;
-  }
+if (dd < 10) {
+var currDay = "0"+dd;
+} else {
+var currDay = dd;
+}
+
+if (h < 10) {
+var currHour = "0"+h;
+} else {
+var currHour = h;
+}
+
+if (m < 10) {
+var currMinute = "0"+m;
+} else {
+var currMinute = m;
+}
+
+if (s < 10) {
+var currSecond = "0"+s;
+} else {
+var currSecond = s;
+}
+document.getElementById("caltime").value = y+"-"+currMonth+"-"+currDay+"T"+currHour+":"+currMinute+":"+currSecond+"Z";
+t=setTimeout(function(){startTime()},100);
+}
+
+
 </script>
 
 </head>
@@ -50,13 +77,7 @@ function checkTime(i)
 </center>
 <hr>
 <h2>ISO-8601 TIMESTAMP:</h2>
-<!--<table>
-  <tr>
-    <td class="outline">
-    <div class="clock" id="care-a-lot time"></div>
-    </td>
-  </tr>
-</table>-->
+
 
 <button onclick="buttonCopyText()">message of current time</button>
 
